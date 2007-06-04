@@ -1,0 +1,317 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/Makefile.am src/xfc-4.3.2/Makefile.am
+--- origsrc/xfc-4.3.2/Makefile.am	2007-04-18 17:18:27.000000000 -0500
++++ src/xfc-4.3.2/Makefile.am	2007-06-03 23:22:35.437500000 -0500
+@@ -19,8 +19,8 @@
+ library_configdir = $(libdir)/$(XFCEDIR)/$(XFC_LIBRARY_NAME)/include
+ library_config_DATA = xfc-config.h
+ 
+-xfc_doc_DATA = AUTHORS ChangeLog COPYING NEWS README
++noinst_DATA = AUTHORS ChangeLog COPYING NEWS README
+ 
+ DISTCHECK_CONFIGURE_FLAGS = \
+ 	--disable-debug \
+-	--enable-docs
+\ No newline at end of file
++	--enable-docs
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/demos/xfc-demo/Makefile.am src/xfc-4.3.2/demos/xfc-demo/Makefile.am
+--- origsrc/xfc-4.3.2/demos/xfc-demo/Makefile.am	2007-04-18 17:18:26.000000000 -0500
++++ src/xfc-4.3.2/demos/xfc-demo/Makefile.am	2007-06-03 21:05:09.781250000 -0500
+@@ -38,8 +38,8 @@
+ 
+ INCLUDES = \
+  -DDEMOCODEDIR="\"$(democodedir)\"" \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui 
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui 
+ 
+ LIBS = \
+  $(top_builddir)/libXFCcore/xfc/libXFCcore-$(XFC_API_VERSION).la \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/examples/core/Makefile.fragment src/xfc-4.3.2/examples/core/Makefile.fragment
+--- origsrc/xfc-4.3.2/examples/core/Makefile.fragment	2007-04-18 17:18:27.000000000 -0500
++++ src/xfc-4.3.2/examples/core/Makefile.fragment	2007-06-03 21:05:52.390625000 -0500
+@@ -1,7 +1,7 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_CORE_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore
++ -I$(top_srcdir)/libXFCcore
+ 
+ LIBS = \
+  $(top_builddir)/libXFCcore/xfc/libXFCcore-$(XFC_API_VERSION).la
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/examples/glade/Makefile.fragment src/xfc-4.3.2/examples/glade/Makefile.fragment
+--- origsrc/xfc-4.3.2/examples/glade/Makefile.fragment	2007-04-18 17:18:27.000000000 -0500
++++ src/xfc-4.3.2/examples/glade/Makefile.fragment	2007-06-03 21:06:30.125000000 -0500
+@@ -1,9 +1,9 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_UI_CFLAGS@ @XFC_GLADE_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCglade \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCglade \
++ -I$(top_srcdir)/libXFCui
+ 
+ LIBS = \
+  $(top_builddir)/libXFCcore/xfc/libXFCcore-$(XFC_API_VERSION).la \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/examples/howto/Makefile.fragment src/xfc-4.3.2/examples/howto/Makefile.fragment
+--- origsrc/xfc-4.3.2/examples/howto/Makefile.fragment	2007-04-18 17:18:27.000000000 -0500
++++ src/xfc-4.3.2/examples/howto/Makefile.fragment	2007-06-03 21:06:36.515625000 -0500
+@@ -1,12 +1,12 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_UI_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui
+ 
+ LIBS = \
+  $(top_builddir)/libXFCcore/xfc/libXFCcore-$(XFC_API_VERSION).la \
+  $(top_builddir)/libXFCui/xfc/libXFCui-$(XFC_API_VERSION).la
+ 	
+ include $(top_srcdir)/examples/Makefile.fragment
+-	
+\ No newline at end of file
++	
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/examples/sourceview/Makefile.fragment src/xfc-4.3.2/examples/sourceview/Makefile.fragment
+--- origsrc/xfc-4.3.2/examples/sourceview/Makefile.fragment	2007-04-18 17:18:27.000000000 -0500
++++ src/xfc-4.3.2/examples/sourceview/Makefile.fragment	2007-06-03 21:06:44.937500000 -0500
+@@ -1,9 +1,9 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_UI_CFLAGS@ @XFC_SOURCEVIEW_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui \
+- -I$(top_builddir)/libXFCsourceview
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui \
++ -I$(top_srcdir)/libXFCsourceview
+ 
+ LIBS = \
+  $(top_builddir)/libXFCcore/xfc/libXFCcore-$(XFC_API_VERSION).la \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/examples/ui/Makefile.fragment src/xfc-4.3.2/examples/ui/Makefile.fragment
+--- origsrc/xfc-4.3.2/examples/ui/Makefile.fragment	2007-04-18 17:18:27.000000000 -0500
++++ src/xfc-4.3.2/examples/ui/Makefile.fragment	2007-06-03 21:06:48.734375000 -0500
+@@ -1,12 +1,12 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_UI_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui
+ 
+ LIBS = \
+  $(top_builddir)/libXFCcore/xfc/libXFCcore-$(XFC_API_VERSION).la \
+  $(top_builddir)/libXFCui/xfc/libXFCui-$(XFC_API_VERSION).la
+ 	
+ include $(top_srcdir)/examples/Makefile.fragment
+-	
+\ No newline at end of file
++	
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCcore/xfc/Makefile.am src/xfc-4.3.2/libXFCcore/xfc/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCcore/xfc/Makefile.am	2007-04-18 17:18:17.000000000 -0500
++++ src/xfc-4.3.2/libXFCcore/xfc/Makefile.am	2007-06-03 17:23:00.640625000 -0500
+@@ -6,7 +6,7 @@
+ 
+ EXTRA_DIST = version.hh.in
+ 
+-INCLUDES = -I$(top_builddir)/libXFCcore
++INCLUDES = -I$(top_srcdir)/libXFCcore
+ 
+ hh_sources = \
+  convert.hh \
+@@ -35,5 +35,5 @@
+ lib_LTLIBRARIES = libXFCcore-4.3.la
+ libXFCcore_4_3_la_SOURCES= $(hh_sources) $(cc_sources)
+ libXFCcore_4_3_la_LIBADD= glib/libglib.la $(XFC_CORE_LIBS)
+-libXFCcore_4_3_la_LDFLAGS= -version-info $(XFC_LIBRARY_VERSION)
++libXFCcore_4_3_la_LDFLAGS= -version-info $(XFC_LIBRARY_VERSION) -no-undefined
+ 
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCcore/xfc/glib/Makefile.am src/xfc-4.3.2/libXFCcore/xfc/glib/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCcore/xfc/glib/Makefile.am	2007-04-18 17:18:16.000000000 -0500
++++ src/xfc-4.3.2/libXFCcore/xfc/glib/Makefile.am	2007-06-03 17:13:45.546875000 -0500
+@@ -4,7 +4,7 @@
+ 
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_CORE_CFLAGS@
+ 
+-INCLUDES = -I$(top_builddir)/libXFCcore
++INCLUDES = -I$(top_srcdir)/libXFCcore
+ 
+ hh_sources = \
+  asyncqueue.hh \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCglade/xfc/Makefile.am src/xfc-4.3.2/libXFCglade/xfc/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCglade/xfc/Makefile.am	2007-04-18 17:18:18.000000000 -0500
++++ src/xfc-4.3.2/libXFCglade/xfc/Makefile.am	2007-06-03 20:19:06.218750000 -0500
+@@ -5,9 +5,9 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_CORE_CFLAGS@ @XFC_GLADE_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCglade \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCglade \
++ -I$(top_srcdir)/libXFCui
+ 
+ hh_sources = \
+  xfcglade.hh
+@@ -16,6 +16,6 @@
+ library_include_HEADERS = $(hh_sources)
+ 
+ lib_LTLIBRARIES = libXFCglade-4.3.la
+-libXFCglade_4_3_la_SOURCES= $(hh_sources)
+-libXFCglade_4_3_la_LIBADD= glade/libglade.la $(XFC_GLADE_LIBS)
+-libXFCglade_4_3_la_LDFLAGS= -version-info $(XFC_LIBRARY_VERSION)
++libXFCglade_4_3_la_SOURCES= dummy.cc
++libXFCglade_4_3_la_LIBADD= glade/libglade.la $(top_builddir)/libXFCui/xfc/libXFCui-4.3.la $(top_builddir)/libXFCcore/xfc/libXFCcore-4.3.la $(XFC_GLADE_LIBS)
++libXFCglade_4_3_la_LDFLAGS= -version-info $(XFC_LIBRARY_VERSION) -no-undefined
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCglade/xfc/dummy.cc src/xfc-4.3.2/libXFCglade/xfc/dummy.cc
+--- origsrc/xfc-4.3.2/libXFCglade/xfc/dummy.cc	1969-12-31 18:00:00.000000000 -0600
++++ src/xfc-4.3.2/libXFCglade/xfc/dummy.cc	2007-06-03 20:11:57.718750000 -0500
+@@ -0,0 +1 @@
++// This file forces automake to link with CXX instead of CC
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCglade/xfc/glade/Makefile.am src/xfc-4.3.2/libXFCglade/xfc/glade/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCglade/xfc/glade/Makefile.am	2007-04-18 17:18:18.000000000 -0500
++++ src/xfc-4.3.2/libXFCglade/xfc/glade/Makefile.am	2007-06-03 17:14:19.578125000 -0500
+@@ -5,9 +5,9 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_CORE_CFLAGS@ @XFC_GLADE_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCglade \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCglade \
++ -I$(top_srcdir)/libXFCui
+ 
+ hh_sources = \
+  glade.hh \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCsourceview/xfc/Makefile.am src/xfc-4.3.2/libXFCsourceview/xfc/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCsourceview/xfc/Makefile.am	2007-04-18 17:18:17.000000000 -0500
++++ src/xfc-4.3.2/libXFCsourceview/xfc/Makefile.am	2007-06-03 19:23:47.062500000 -0500
+@@ -5,6 +5,6 @@
+ library_includedir=$(includedir)/$(XFCEDIR)/$(XFC_LIBRARY_NAME)
+ 
+ lib_LTLIBRARIES = libXFCsourceview-4.3.la
+-libXFCsourceview_4_3_la_SOURCES= 
+-libXFCsourceview_4_3_la_LIBADD= sourceview/libsourceview.la $(XFC_SOURCEVIEW_LIBS)
+-libXFCsourceview_4_3_la_LDFLAGS= -version-info $(XFC_LIBRARY_VERSION)
++libXFCsourceview_4_3_la_SOURCES= dummy.cc
++libXFCsourceview_4_3_la_LIBADD= sourceview/libsourceview.la $(top_builddir)/libXFCui/xfc/libXFCui-4.3.la $(top_builddir)/libXFCcore/xfc/libXFCcore-4.3.la $(XFC_SOURCEVIEW_LIBS)
++libXFCsourceview_4_3_la_LDFLAGS= -version-info $(XFC_LIBRARY_VERSION) -no-undefined
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCsourceview/xfc/dummy.cc src/xfc-4.3.2/libXFCsourceview/xfc/dummy.cc
+--- origsrc/xfc-4.3.2/libXFCsourceview/xfc/dummy.cc	1969-12-31 18:00:00.000000000 -0600
++++ src/xfc-4.3.2/libXFCsourceview/xfc/dummy.cc	2007-06-03 19:24:08.046875000 -0500
+@@ -0,0 +1 @@
++// This file forces automake to link with CXX instead of CC
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCsourceview/xfc/sourceview/Makefile.am src/xfc-4.3.2/libXFCsourceview/xfc/sourceview/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCsourceview/xfc/sourceview/Makefile.am	2007-04-18 17:18:17.000000000 -0500
++++ src/xfc-4.3.2/libXFCsourceview/xfc/sourceview/Makefile.am	2007-06-03 17:14:26.671875000 -0500
+@@ -37,9 +37,9 @@
+ library_includedir=$(includedir)/$(XFCEDIR)/$(XFC_LIBRARY_NAME)/sourceview
+ library_include_HEADERS = $(hh_sources)
+ 
+-INCLUDES = -I$(top_builddir)/libXFCsourceview \
+-     -I$(top_builddir)/libXFCcore \
+-     -I$(top_builddir)/libXFCui
++INCLUDES = -I$(top_srcdir)/libXFCsourceview \
++     -I$(top_srcdir)/libXFCcore \
++     -I$(top_srcdir)/libXFCui
+ 
+ noinst_LTLIBRARIES= libsourceview.la
+ libsourceview_la_SOURCES= $(hh_sources) $(cc_sources)
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCui/xfc/Makefile.am src/xfc-4.3.2/libXFCui/xfc/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCui/xfc/Makefile.am	2007-04-18 17:18:26.000000000 -0500
++++ src/xfc-4.3.2/libXFCui/xfc/Makefile.am	2007-06-03 19:12:28.281250000 -0500
+@@ -5,8 +5,8 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_CORE_CFLAGS@ @XFC_GTK_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui
+ 
+ hh_sources = \
+  main.hh \
+@@ -21,5 +21,5 @@
+ 
+ lib_LTLIBRARIES= libXFCui-4.3.la
+ libXFCui_4_3_la_SOURCES= $(hh_sources) $(cc_sources)
+-libXFCui_4_3_la_LIBADD= atk/libatk.la gdk/libgdk.la gdk-pixbuf/libgdk_pixbuf.la gtk/libgtk.la pango/libpango.la $(XFC_UI_LIBS)
+-libXFCui_4_3_la_LDFLAGS= -version-info $(XFC_LIBRARY_VERSION)
++libXFCui_4_3_la_LIBADD= atk/libatk.la gdk/libgdk.la gdk-pixbuf/libgdk_pixbuf.la gtk/libgtk.la pango/libpango.la $(top_builddir)/libXFCcore/xfc/libXFCcore-4.3.la $(XFC_UI_LIBS)
++libXFCui_4_3_la_LDFLAGS= -version-info $(XFC_LIBRARY_VERSION) -no-undefined
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCui/xfc/atk/Makefile.am src/xfc-4.3.2/libXFCui/xfc/atk/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCui/xfc/atk/Makefile.am	2007-04-18 17:18:19.000000000 -0500
++++ src/xfc-4.3.2/libXFCui/xfc/atk/Makefile.am	2007-06-03 17:14:34.281250000 -0500
+@@ -5,8 +5,8 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_CORE_CFLAGS@ @XFC_ATK_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui
+ 
+ hh_sources = \
+  action.hh \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCui/xfc/gdk/Makefile.am src/xfc-4.3.2/libXFCui/xfc/gdk/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCui/xfc/gdk/Makefile.am	2007-04-18 17:18:20.000000000 -0500
++++ src/xfc-4.3.2/libXFCui/xfc/gdk/Makefile.am	2007-06-03 17:14:47.437500000 -0500
+@@ -5,8 +5,8 @@
+ AM_CXXFLAGS = @CXXFLAGS@  @XFC_CORE_CFLAGS@ @XFC_GTK_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui
+ 
+ hh_sources = \
+  bitmap.hh \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCui/xfc/gdk-pixbuf/Makefile.am src/xfc-4.3.2/libXFCui/xfc/gdk-pixbuf/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCui/xfc/gdk-pixbuf/Makefile.am	2007-04-18 17:18:19.000000000 -0500
++++ src/xfc-4.3.2/libXFCui/xfc/gdk-pixbuf/Makefile.am	2007-06-03 17:14:43.218750000 -0500
+@@ -5,8 +5,8 @@
+ AM_CXXFLAGS = @CXXFLAGS@  @XFC_CORE_CFLAGS@ @XFC_GTK_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui
+ 
+ hh_sources = \
+  gdk-pixbuf.hh \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCui/xfc/gtk/Makefile.am src/xfc-4.3.2/libXFCui/xfc/gtk/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCui/xfc/gtk/Makefile.am	2007-04-18 17:18:25.000000000 -0500
++++ src/xfc-4.3.2/libXFCui/xfc/gtk/Makefile.am	2007-06-03 17:14:51.531250000 -0500
+@@ -5,8 +5,8 @@
+ AM_CXXFLAGS = @CXXFLAGS@  @XFC_CORE_CFLAGS@ @XFC_GTK_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui
+ 
+ hh_sources = \
+  aboutdialog.hh \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in origsrc/xfc-4.3.2/libXFCui/xfc/pango/Makefile.am src/xfc-4.3.2/libXFCui/xfc/pango/Makefile.am
+--- origsrc/xfc-4.3.2/libXFCui/xfc/pango/Makefile.am	2007-04-18 17:18:19.000000000 -0500
++++ src/xfc-4.3.2/libXFCui/xfc/pango/Makefile.am	2007-06-03 17:14:54.875000000 -0500
+@@ -5,8 +5,8 @@
+ AM_CXXFLAGS = @CXXFLAGS@ @XFC_CORE_CFLAGS@ @XFC_GTK_CFLAGS@ @XFC_PANGO_CFLAGS@
+ 
+ INCLUDES = \
+- -I$(top_builddir)/libXFCcore \
+- -I$(top_builddir)/libXFCui
++ -I$(top_srcdir)/libXFCcore \
++ -I$(top_srcdir)/libXFCui
+ 
+ hh_sources = \
+  attributes.hh \

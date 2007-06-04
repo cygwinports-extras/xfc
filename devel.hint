@@ -1,0 +1,13 @@
+category: Xfce
+requires: cygwin atk-devel glib2-devel gtk2-x11-devel gtksourceview-devel libglade2-devel gettext libsigc++20-devel pango-devel
+external-source: xfc
+sdesc: "Xfce C++ bindings for GTK+ libraries (development)"
+ldesc: "The Xfce Foundation Classes (XFC) is a set of well integrated 
+C++ classes for developing Xfce applications on UNIX-like operating 
+systems such as Linux.
+
+XFC combines the power of GTK+ and the power of C++ into a state-of-the-art
+application development framework for the Xfce Desktop Environment. XFC
+judiciously uses C++ language features to avoid layering on too much extra
+C++ complexity. Its API is easy to understand and use, and should feel
+immediately familiar to most GTK+ programmers."
