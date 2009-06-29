@@ -1,5 +1,5 @@
 category: Xfce
-requires: cygwin atk glib2 gtk2-x11 gtksourceview libglade2 libintl8 libsigc++20 pango
+requires: atk glib2 gtk2-x11 gtksourceview libglade2 libintl8 libsigc++20 pango
 sdesc: "Xfce C++ bindings for GTK+ libraries (runtime)"
 ldesc: "The Xfce Foundation Classes (XFC) is a set of well integrated 
 C++ classes for developing Xfce applications on UNIX-like operating 

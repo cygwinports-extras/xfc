@@ -1,5 +1,5 @@
 category: Xfce
-requires: cygwin atk-devel glib2-devel gtk2-x11-devel gtksourceview-devel libglade2-devel gettext libsigc++20-devel pango-devel
+requires: atk-devel glib2-devel gtk2-x11-devel gtksourceview-devel libglade2-devel gettext libsigc++20-devel pango-devel
 external-source: xfc
 sdesc: "Xfce C++ bindings for GTK+ libraries (development)"
 ldesc: "The Xfce Foundation Classes (XFC) is a set of well integrated 
